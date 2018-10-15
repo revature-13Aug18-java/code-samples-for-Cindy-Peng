@@ -1,0 +1,47 @@
+<div id = "layer" class="container">
+  <app-nav></app-nav>
+  <h2>{{username | titlecase}}'s Transaction History</h2>
+  <div *ngIf="soldTransactions.length > 0; else NoStocks">
+    <table class="table">
+      <tr>
+        <th>Transaction ID</th>
+        <th>Sticker Symbol</th>
+        <th>Shares</th>
+        <th>Bought For</th>
+        <th>Sold For</th>
+        <th>Total Return</th>
+        <th>Return %</th>
+        <th>Date</th>
+      </tr>
+      <!-- https://blog.angular-university.io/angular-2-ngfor/ -->
+      <tr *ngFor = "let transaction of soldTransactions; let i = index">
+                        <!-- use $ for interpolation-->
+        <td>{{transaction.id}}</td>
+        <td><a routerLink="../company" (click)="getSymbol(transaction.symbol)">{{transaction.symbol}}</a></td>
+        <td>{{transaction.shares}}</td>
+        <td>{{transaction.boughtFor}}</td>
+        <td>{{transaction.sellingFor}}</td>
+        <td>{{(transaction.sellingFor - transaction.boughtFor) * transaction.shares | currency}}</td>
+        <!-- <div *ngIf="transaction.sellingFor - transaction.boughtFor === 0; 
+            else if (transaction.sellingFor - transaction.boughtFor)/transaction < 0.01 &&
+                    (transaction.sellingFor - transaction.boughtFor)/transaction > -0.01 else doCalculate">
+          <td>0%</td>
+        </div>                         
+        <ng-template [ngIf]><td>{{(transaction.sellingFor - transaction.boughtFor) / transaction | percent}}</td></ng-template>
+      -->
+        <div *ngIf="((transaction.sellingFor - transaction.boughtFor) === 0 || (transaction.sellingFor - transaction.boughtFor)/transaction.boughtFor) < 0.01 &&((transaction.sellingFor - transaction.boughtFor)/transaction.boughtFor) > -0.01; else doCalculate">
+          <td>{{ zeroVariable | percent }}</td>
+        </div>
+        <ng-template #doCalculate><td>{{(transaction.sellingFor - transaction.boughtFor) / transaction.boughtFor | percent}}</td></ng-template>
+
+        <td>{{transaction.date | date}}</td> 
+      </tr>
+    </table>
+  </div>
+  <ng-template #NoStocks>
+    Sorry, but it seems you have no transaction history at the moment. Click <a routerLink="../portfolio">here</a>
+    to sell your stocks.
+  </ng-template>
+
+  
+

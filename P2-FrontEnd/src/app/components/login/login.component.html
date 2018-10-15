@@ -1,0 +1,17 @@
+
+<div class="container">
+    <h1 style = "padding-top: 60px; padding-bottom: 40px; font-family: 'Goudy Old Style', cursive;">
+      <strong>C&C Corner Investments</strong>
+    </h1>
+    <div>    
+      <label style = "margin-right: 16px; font-family: 'Goudy Old Style';" >Username:</label>
+      <input type="text" [(ngModel)] = "userN"/>
+      <br/><br/>
+      <label style = "margin-right: 16px; font-family: 'Goudy Old Style';">Password:</label>
+      <input type="password" [(ngModel)] = "passW" style = "margin-left: 20px; font-family: 'Goudy Old Style';"/><br/><br/>
+      <button value="Login" (click) = "sendCredentials()" class="btn btn-secondary"><strong>Login</strong></button><br>
+      <!-- <p> the name is {{user.name}}</p> -->
+    </div>
+  </div>
+  <br>
+  <a routerLink="../new" style="text-align: right; " color = "#041126"><strong style = "font-family: 'Goudy Old Style';"> New user? Create an account here </strong></a>
