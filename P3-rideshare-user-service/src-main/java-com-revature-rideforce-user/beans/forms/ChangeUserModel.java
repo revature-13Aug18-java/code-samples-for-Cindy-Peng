@@ -21,6 +21,34 @@ public class ChangeUserModel {
 	private String role;
 	private String active;
 	
+	public void changeUser(User original)
+	{
+		if(firstName != null)
+			original.setFirstName(firstName);
+		if(lastName != null)
+			original.setLastName(lastName);
+		if(email != null)
+			original.setEmail(email.toLowerCase());
+		if(photoUrl != null)
+			original.setPhotoUrl(photoUrl);
+		if(address != null)
+			original.setAddress(address);
+		if(office != null)
+			original.setOffice(office);
+		if(batchEnd != null)
+			original.setBatchEnd(batchEnd);
+		if(active != null)
+			original.setActive(active);
+		if(password != null)
+			try {
+				original.setPassword(password);
+			} catch (EmptyPasswordException e) {
+				//don't change the password if it's empty ""
+			}
+		if(startTime < 0.0)
+			original.setStartTime(startTime);
+	}
+	
 	public int getId() {
 		return id;
 	}
@@ -123,34 +151,4 @@ public class ChangeUserModel {
 				+ ", photoUrl=" + photoUrl + ", address=" + address + ", office=" + office + ", batchEnd=" + batchEnd
 				+ ", role=" + role + "]";
 	}
-	
-	public void changeUser(User original)
-	{
-		if(firstName != null)
-			original.setFirstName(firstName);
-		if(lastName != null)
-			original.setLastName(lastName);
-		if(email != null)
-			original.setEmail(email.toLowerCase());
-		if(photoUrl != null)
-			original.setPhotoUrl(photoUrl);
-		if(address != null)
-			original.setAddress(address);
-		if(office != null)
-			original.setOffice(office);
-		if(batchEnd != null)
-			original.setBatchEnd(batchEnd);
-		if(active != null)
-			original.setActive(active);
-		if(password != null)
-			try {
-				original.setPassword(password);
-			} catch (EmptyPasswordException e) {
-				//don't change the password if it's empty ""
-			}
-		if(startTime < 0.0)
-			original.setStartTime(startTime);
-	}
-	
-	
 }
