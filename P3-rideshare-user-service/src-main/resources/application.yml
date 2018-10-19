@@ -1,0 +1,18 @@
+spring:
+  profiles: development-oracl
+  application:
+    name: user-service
+  datasource:
+    url: ${JDBC_URL}
+    username: ${JDBC_USERNAME}
+    password: ${JDBC_PASSWORD}         #INSTEAD, CAN JUST ADD ENV VARIABLES    SPRING_DATASOURCE_URL/USERNAME/PASSWORD
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+
+amazonProperties:
+  endpointUrl: http://rideshare-photos.s3-website-us-east-1.amazonaws.com
+  accessKey: ${ACCESS}
+  secretKey: ${SECRET}
+  bucketName: rideshare-photos
