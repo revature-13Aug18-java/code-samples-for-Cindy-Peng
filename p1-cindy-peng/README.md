@@ -7,7 +7,10 @@ that log in may request reimbursements or look at their previous history
 or requests, while managers while logged in may approve or reject 
 reimbursements. 
 
+- Servlets, Java, JavaScript, HTML, CSS, JDBC, SQL, AJAX, Bootstrap, 
+RDS, Apache Tomcat, Git, Maven.
 - Packaged as a war with deployment descriptor web.xml.
+- Tomcat web server hosted the application.
 - Used Java's HttpSession to maintain a user's session and keep some web 
 pages more secure.
 - Singleton design pattern use of Java's java.sql.Connection interface 

@@ -6,6 +6,7 @@ to manage their shares. They can search companies for their stocks and
 buy or sell them. They can also see their history of transactions. This 
 directory holds the code samples for the back end application.
 
+- Java, Spring Data JPA, DevOps, Hibernate, Git, JUnit, Maven
 - Used Spring Data and JPA to map Java objects to the database.
 - Created REST controllers to provide front end with information from 
 the database.
