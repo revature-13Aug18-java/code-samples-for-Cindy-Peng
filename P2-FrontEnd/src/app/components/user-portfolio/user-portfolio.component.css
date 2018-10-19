@@ -1,6 +1,0 @@
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-/* https://blog.rudolphk.co.za/css-tip-remove-spinner-on-input-of-number-9fc4d9cac121 */
