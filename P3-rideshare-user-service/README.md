@@ -10,16 +10,6 @@ start times, batch end day, Revature location, etc.).
 
 - Microservices, Spring, DevOps, Agile, Java, Maven, Amazon Web 
 Services, Git, SonarCloud.
-- Wrote JavaDoc documentation for the User-Service microservice. 
-- Created JUnit tests for the repository, service, and controller layers 
-using Mockito, MockMvc, Spring Boot Test, AssertJ. 
-- Used ECL Emma to track code coverage and increased code coverage to 
-74%.
-- Participated in an Agile team environment.
-- Practiced developing on Git branches and pushing to the development 
-branch, then merging to a master branch.
-- Cooperated with DevOps team to make sure added changes integrated 
-well.
 - Added password reset controller endpoints needed from the front end 
 application using Spring Security, Javax Mail, Auth0's JWT tokens, and testing the 
 service and endpoints.
@@ -32,5 +22,15 @@ rather than in different services.
 - Added features the front end application needed, including start 
 time, account activation/deactivation/disabling, and refactored the 
 update user settings endpoint.
+- Wrote JavaDoc documentation for the User-Service microservice.
+- Created JUnit tests for the repository, service, and controller layers
+using Mockito, MockMvc, Spring Boot Test, AssertJ.
+- Used ECL Emma to track code coverage and increased test code coverage to
+74%.
 - Analyzed code quality with SonarLint and SonarCloud.
+- Participated in an Agile team environment.
+- Practiced developing on Git branches and pushing to the development
+branch, then merging to a master branch.
+- Cooperated with DevOps team to make sure added changes integrated
+well.
 
