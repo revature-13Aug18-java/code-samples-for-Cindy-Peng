@@ -55,15 +55,7 @@ public class AuthenticationService {
 	 */
 	public String authenticate(UserCredentials credentials) throws InvalidCredentialsException, DisabledAccountException {
 		User found = userRepository.findByEmail(credentials.getEmail());
-		log.info("Authenticating user credentials");
-		log.debug("credentials.email(): {} ", credentials.getEmail()); //find solution for logging sensitive data; possibly dbappender
-		log.debug("credentials.password: {} ", credentials.getPassword());
-		if (found == null) {
-			throw new InvalidCredentialsException();
-		}
-		if (!passwordEncoder.matches(credentials.getPassword(), found.getPassword())) {
-			throw new InvalidCredentialsException();
-		}
+		//more code not included here
 		if (found.isActive().equals("DISABLED")) {
 			throw new DisabledAccountException();
 		}
@@ -89,48 +81,15 @@ public class AuthenticationService {
 	 * 										   meet the requirements specified
 	 */
 	public User register(UserRegistrationInfo info)
-			throws InvalidRegistrationKeyException, EntityConflictException, PermissionDeniedException, EmptyPasswordException, PasswordRequirementsException {
-		if(info == null) {
-			throw new InvalidRegistrationKeyException();
-		}
-		// Make sure that the registration key token is valid.
-		if (!registrationTokenProvider.isValid(info.getRegistrationKey())) {
-			log.info("Attempting to register user");
-			log.debug(info.getRegistrationKey());
-			throw new InvalidRegistrationKeyException();
-		}
+			throws EmptyPasswordException, PasswordRequirementsException {
 		// Make sure password meets requirements.
 		if(!passwordIsValid(info.getPassword())) {
 			log.info("Password length violation");
 			throw new PasswordRequirementsException();
 		}
-		log.info("User registered successfully");
-		log.info("Hashing password");
+		
 		info.getUser().setPassword(info.getPassword());   //hashing will be done in setPassword()
 		return userService.add(info.getUser());
-	}
-
-	/**
-	 * Gets the {@link User} object corresponding to the currently authenticated
-	 * user.
-	 * 
-	 * @return the currently authenticated user, or {@code null} if no user is
-	 *         logged in (according to the authentication information stored in the
-	 *         {@link SecurityContextHolder}
-	 */
-	public User getCurrentUser() {
-		log.info("Getting current user from Authentication");
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-
-		log.debug("Authentication value: {}", auth);
-
-		if (auth == null || !auth.isAuthenticated() || !(auth.getPrincipal() instanceof User)) {
-			log.debug("User is null"); 
-			return null;
-		}
-    
-		log.debug("User authenticated successfully");
-		return (User) auth.getPrincipal();
 	}
 	
 	/**
