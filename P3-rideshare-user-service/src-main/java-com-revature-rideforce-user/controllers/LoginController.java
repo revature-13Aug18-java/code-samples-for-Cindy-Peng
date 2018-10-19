@@ -27,13 +27,6 @@ public class LoginController {
 	@Autowired
 	private AuthenticationService authenticationService;
 
-	@GetMapping
-	public ResponseEntity<?> getCurrentUser() {
-		User currentUser = authenticationService.getCurrentUser();
-		return currentUser == null ? new ResponseError("Not logged in.").toResponseEntity(HttpStatus.FORBIDDEN)
-				: ResponseEntity.ok(currentUser);
-	}
-
 	@PostMapping(consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ResponseEntity<?> login(@RequestBody @Valid UserCredentials credentials) {
 		try {
