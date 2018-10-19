@@ -3,7 +3,7 @@ Original Github link can be found on https://github.com/TheCursedMerchant/CC-Sto
 
 C and C Investments is a stock portfolio application that allows users
 to manage their shares. They can search companies for their stocks and
-buy or sell them. They can also see their history of transactions.
+buy or sell them. They can also see their history of transactions. This folder has the code for the front end application.
 
 - HTML, CSS, AJAX, DevOps, Angular, Git
 - Used Angular's HttpClient to make AJAX calls to the API and REST 
