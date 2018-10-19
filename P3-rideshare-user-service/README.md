@@ -6,7 +6,7 @@ associates. To register an account as an associate, a registration key
 token is needed and can be given by the associate's trainer. The 
 associate can register as either a driver or as a carpool rider, and 
 they can search for a profile that matches their needs (similar day 
-start times, batch end day, Revature location, etc.).
+start times, batch end day, Revature location, etc.). My part in the project was to improve upon the User-Service microservice.
 
 - Microservices, Spring, DevOps, Agile, Java, Maven, Amazon Web 
 Services, Git, SonarCloud.
